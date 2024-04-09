@@ -1,0 +1,19 @@
+nguồn: https://www.geeksforgeeks.org/a-search-algorithm/
+
+
+1, Khởi tạo 2 danh sách: open_list (chứa các điểm kế tiếp ???), close_list (chứa các điểm trên đường đi đến đích, khởi tạo ban đầu có chứa điểm xuất phát)
+2, lặp đến khi open_list không còn phần tử
+    2.1, tìm điểm với giá trị f() thấp nhất, gọi là q
+    2.2, đẩy q ra khỏi open_list
+    2.3, tạo 8 điểm con p xung quanh q và thiết lập gốc cha của chúng là q
+    2.4, 
+        với mỗi điểm con p:
+        2.4.1, nếu điểm con p trùng với đích, dừng tim kiếm
+        2.4.2, nếu không tính toán g(p) và h(p) cho điểm con với g(p) = g(q) + khoảng cách điểm con và q; h(p) = khoảng cách từ đích đến điểm con
+         từ đó tính được f(p) = g(p) + h(p)
+        2.4.3, nếu một điểm có cùng vị trí với điểm con nằm trong open_list có f(q) < f(p), bỏ qua điểm này
+        2.4.4, nếu một điểm có cùng vị trí với điểm con nằm trong close_list có f(q) < f(p), bỏ qua điểm này
+         nếu không, thêm điểm này vào open_list
+        kết thúc vòng lặp
+    2.5, đẩy điểm q vào close_list
+kết thúc vòng lặp
